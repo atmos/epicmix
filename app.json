@@ -24,10 +24,6 @@
       "description": "Whether or not rails should serve static assets from the ruby stack",
       "value": "enabled"
     },
-    "ROLLBAR_ACCESS_TOKEN": {
-      "description": "Rollbar api token to submit errors",
-      "required": false
-    },
     "SECRET_KEY_BASE": {
       "description": "The session secret used to encrypt and sign session cookies",
       "generator": "secret"
