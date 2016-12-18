@@ -17,5 +17,8 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore asset pipeline caches
+public/assets
+
 # Ignore Byebug command history file.
 .byebug_history
