@@ -31,6 +31,18 @@
     "SIMPLE_BOX_SECRET": {
       "description": "The secret used for writing encrypted values to the database. Generate with 'dd if=/dev/urandom bs=32 count=1 2>/dev/null | openssl base64'",
       "generator": "secret"
+    },
+    "SLACK_OAUTH_ID": {
+      "description": "The oauth client id for this app",
+      "required": false
+    },
+    "SLACK_OAUTH_SECRET": {
+      "description": "The oauth client secret for this app",
+      "required": false
+    },
+    "SLACK_SLASH_COMMAND_TOKEN": {
+      "description": "The token for slash commans to be verified",
+      "required": false
     }
   }
 }
