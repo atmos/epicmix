@@ -4,7 +4,7 @@ class CommandsController < ApplicationController
 
   def create
     if slack_token_valid?
-      render json: { text: ":soon:", response_type: "in_channel" }
+      render json: { text: ":soon:", response_type: "in_channel" }, status: 201
     else
       render json: {}, status: 403
     end
