@@ -7,6 +7,10 @@ class PagesController < ApplicationController
     @page_body = pipeline.call(privacy_md)[:output].to_s
   end
 
+  def support
+    redirect_to "mailto:atmos+epicmix+support@atmos.org"
+  end
+
   private
 
   def privacy_md
