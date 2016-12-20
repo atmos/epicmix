@@ -18,7 +18,7 @@ RSpec.describe "Slack Authentication", type: :request do
       expect(status).to eql(302)
       uri = Addressable::URI.parse(headers["Location"])
       expect(uri.host).to eql("www.example.com")
-      expect(uri.path).to eql("/settings")
+      expect(uri.path).to eql("/profile")
     end.to change { User.count }.by(1)
 
     user = User.first

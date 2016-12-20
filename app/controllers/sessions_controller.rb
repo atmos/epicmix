@@ -9,24 +9,18 @@ class SessionsController < ApplicationController
 
     user.save
     session[:user_id] = user.id
-    redirect_to after_successful_slack_user_setup_path
+    redirect_to profile_path
   end
 
   def create_slack
     user = User.from_omniauth(omniauth_info)
 
     session[:user_id] = user.id
-    redirect_to after_successful_slack_user_setup_path
+    redirect_to profile_path
   end
 
   def destroy
     session.clear
     redirect_to root_url, notice: "Signed out!"
-  end
-
-  private
-
-  def after_successful_slack_user_setup_path
-    "/settings"
   end
 end
