@@ -4,7 +4,9 @@ RSpec.describe "EpicMix /support", type: [:request] do
   it "redirects to an email link" do
     get "/support"
     expect(status).to eql(302)
-    doc = Nokogiri::HTML(body)
+    expect do
+      Nokogiri::HTML(body)
+    end.to_not raise_error
 
     expect(body).to include("atmos+epicmix+support@atmos.org")
   end

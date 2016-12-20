@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "root#index"
+  root to: "pages#home"
   post "/commands", to: "commands#create"
 
   get "/privacy",                     to: "pages#privacy"
