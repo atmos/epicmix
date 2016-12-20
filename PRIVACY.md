@@ -1,6 +1,6 @@
 # Privacy Policy for EpicMix for Slack
 
-This privacy policy governs your use of the software application EpicMix for Slack (“Application”) for Slack clients, web browsers, and mobile devices that was created by atmos.org. The Application is a Slack integration to assist in deploying code from GitHub to the Heroku platform.
+This privacy policy governs your use of the software application EpicMix for Slack (“Application”) for Slack clients, web browsers, and mobile devices that was created by atmos.org. The Application is a Slack integration to assist in letting users calculate their vertical feet with EpicMix.
 
 ## What information does the Application obtain and how is it used?
 
