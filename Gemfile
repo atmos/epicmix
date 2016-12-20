@@ -24,6 +24,7 @@ gem "redis-rails", ">= 5.0.0"
 gem "sass-rails", "~> 5.0"
 gem "sentry-raven"
 gem "sidekiq"
+gem "tachyons-rails"
 gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
