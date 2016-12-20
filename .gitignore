@@ -22,3 +22,6 @@ public/assets
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore *env config files
+.node-version
