@@ -12,6 +12,10 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  config.before do
+    stub_request(:post, "https://#{ENV['ZIPKIN_API_HOST']}/api/v1/spans")
+  end
+
   config.before type: :webmock do
     WebMock.disable_net_connect!
   end
