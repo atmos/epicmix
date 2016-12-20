@@ -26,19 +26,19 @@ This information is not shared with anyone in any form.
 
 ## What are my opt-out rights?
 
-You can stop all collection of information by the Application by uninstalling the Application. You may use the standard uninstall processes via the application marketplace, https://api.slack.com/apps. You can also request to opt-out via email, at atmos+slash-heroku@atmos.org.
+You can stop all collection of information by the Application by uninstalling the Application. You may use the standard uninstall processes via the application marketplace, https://api.slack.com/apps. You can also request to opt-out via email, at atmos+epicmix@atmos.org.
 
 ## Data Retention Policy, Managing Your Information
 
-We will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. We will retain Automatically Collected information for up to 24 months and thereafter may store it in aggregate. If you’d like us to delete User Provided Data that you have provided via the Application, please contact us at atmos+slash-heroku@atmos.org and we will respond in a reasonable time. Please note that some or all of the User Provided Data may be required in order for the Application to function properly.
+We will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. We will retain Automatically Collected information for up to 24 months and thereafter may store it in aggregate. If you’d like us to delete User Provided Data that you have provided via the Application, please contact us at atmos+epicmix@atmos.org and we will respond in a reasonable time. Please note that some or all of the User Provided Data may be required in order for the Application to function properly.
 
 ## Security
 
-We are concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain. For example, we limit access to this information to authorized employees and contractors who need to know that information in order to operate, develop or improve our Application. Please be aware that, although we endeavor provide reasonable security for information we process and maintain, no security system can prevent all potential security breaches. https://slash-heroku.atmos.org runs on the Heroku platform with two factor auth enabled.
+We are concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain. For example, we limit access to this information to authorized employees and contractors who need to know that information in order to operate, develop or improve our Application. Please be aware that, although we endeavor provide reasonable security for information we process and maintain, no security system can prevent all potential security breaches. https://epicmix.atmos.org runs on the Heroku platform with two factor auth enabled.
 
 ## Changes
 
-This Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy here and informing you via usage in Slack. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes. You can check the history of this policy by https://github.com/atmos/slash-heroku/PRIVACY.md.
+This Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy here and informing you via usage in Slack. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes. You can check the history of this policy by https://github.com/atmos-org/epicmix/PRIVACY.md.
 
 ## Your Consent
 
@@ -46,4 +46,4 @@ By using the Application, you are consenting to our processing of your informati
 
 ## Contact us
 
-If you have any questions regarding privacy while using the Application, or have questions about our practices, please contact us via email at atmos+slash-heroku@atmos.org.
+If you have any questions regarding privacy while using the Application, or have questions about our practices, please contact us via email at atmos+epicmix@atmos.org.
