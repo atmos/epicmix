@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "root#index"
   post "/commands", to: "commands#create"
 
+  get "/privacy",                     to: "pages#privacy"
   get "/profile",                     to: "users#show"
   get "/auth/failure",                to: "sessions#destroy"
   get "/auth/slack/callback",         to: "sessions#create_slack"
