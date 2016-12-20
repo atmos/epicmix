@@ -4,6 +4,7 @@ ruby "2.3.1"
 
 gem "coal_car", "0.2.3"
 gem "coffee-rails", "~> 4.1.0"
+gem "html-pipeline"
 gem "jquery-rails"
 gem "librato-rails"
 gem "lograge"
