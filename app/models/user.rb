@@ -1,5 +1,7 @@
 # A user who authenticated from slack
 class User < ApplicationRecord
+  include CoalCar::AttributeEncryption
+
   def self.omniauth_user_data(omniauth_info)
     token = omniauth_info[:credentials][:token]
     response = slack_client.get("/api/users.identity?token=#{token}")

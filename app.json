@@ -28,7 +28,7 @@
       "description": "The session secret used to encrypt and sign session cookies",
       "generator": "secret"
     },
-    "SIMPLE_BOX_SECRET": {
+    "RBNACL_SECRET": {
       "description": "The secret used for writing encrypted values to the database. Generate with 'dd if=/dev/urandom bs=32 count=1 2>/dev/null | openssl base64'",
       "generator": "secret"
     },
