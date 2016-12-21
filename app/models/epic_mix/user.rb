@@ -51,6 +51,14 @@ module EpicMix
       }
     end
 
+    def id
+      info && info["userID"]
+    end
+
+    def name
+      info && info["userName"]
+    end
+
     private
 
     def authenticate!
