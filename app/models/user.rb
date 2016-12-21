@@ -27,4 +27,17 @@ class User < ApplicationRecord
       connection.adapter Faraday.default_adapter
     end
   end
+
+  def epicmix_user
+    return if epicmix_email.empty? || epicmix_password.empty?
+    @epicmix_user ||= EpicMix::User.new(epicmix_email, epicmix_password)
+  end
+
+  def epicmix_password=(value)
+    self[:enc_epicmix_password] = encrypt_value(value)
+  end
+
+  def epicmix_password
+    decrypt_value(enc_epicmix_password)
+  end
 end
