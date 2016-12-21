@@ -25,6 +25,7 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 
+  config.include(EpicMixHelpers)
   config.include(FixturesHelpers)
   config.include(WebmockHelpers)
   config.include(SlackHelpers)
