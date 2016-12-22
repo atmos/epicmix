@@ -29,7 +29,7 @@ class User < ApplicationRecord
   end
 
   def epicmix_user
-    return if epicmix_email.empty? || epicmix_password.empty?
+    return if epicmix_email.blank? || epicmix_password.blank?
     @epicmix_user ||= EpicMix::User.new(epicmix_email, epicmix_password)
   end
 
