@@ -4,7 +4,7 @@ class CommandsController < ApplicationController
 
   def create
     if slack_token_valid?
-      if epicmix_user.token
+      if epicmix_user && epicmix_user.token
         render json: {
           text: epicmix_user.stats.current_season.vertical_feet,
           response_type: "in_channel"
