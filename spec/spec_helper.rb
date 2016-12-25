@@ -1,6 +1,8 @@
 require "webmock/rspec"
 require "sidekiq/testing"
 
+Dotenv.load
+
 RSpec.configure do |config|
   config.include(WebMock::API)
 
