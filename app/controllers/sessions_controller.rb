@@ -3,9 +3,7 @@ class SessionsController < ApplicationController
   include SessionsHelper
 
   def install_slack
-    user = User.find_or_initialize_by(slack_user_id: omniauth_info_user_id)
-    user.slack_user_name   = omniauth_info["info"]["user"]
-    user.slack_team_id     = omniauth_info["info"]["team_id"]
+    user = User.from_omniauth(omniauth_info)
 
     user.save
     session[:user_id] = user.id

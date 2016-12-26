@@ -16,13 +16,6 @@ RSpec.configure do |config|
 
   config.before do
     stub_request(:post, "https://#{ENV['ZIPKIN_API_HOST']}/api/v1/spans")
-  end
-
-  config.before type: :webmock do
     WebMock.disable_net_connect!
-  end
-
-  config.after type: :webmock do
-    WebMock.allow_net_connect!
   end
 end

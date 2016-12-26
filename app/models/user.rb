@@ -1,5 +1,7 @@
 # A user who authenticated from slack
 class User < ApplicationRecord
+  belongs_to :team
+
   include CoalCar::AttributeEncryption
 
   def self.omniauth_user_data(omniauth_info)
@@ -12,12 +14,15 @@ class User < ApplicationRecord
   def self.from_omniauth(omniauth_info)
     body = omniauth_user_data(omniauth_info)
 
-    user = find_or_initialize_by(
+    team = Team.from_omniauth(body)
+
+    user = team.users.find_or_initialize_by(
       slack_user_id: body["user"]["id"]
     )
     user.slack_team_id   = body["team"]["id"]
     user.slack_user_name = body["user"]["name"]
     user.save
+
     user
   end
 

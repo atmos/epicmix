@@ -2,7 +2,12 @@ require "rails_helper"
 
 RSpec.describe "Slack Application Installation", type: :request do
   it "creates a user when installed" do
-    OmniAuth.config.mock_auth[:slack_install] = slack_omniauth_hash_for_atmos
+    token = "xoxp-9101111159-5657146422-59735495733-3186a13efg"
+    stub_json_request(:get,
+                      "https://slack.com/api/users.identity?token=#{token}",
+                      fixture_data("slack.com/identity.basic"))
+
+    OmniAuth.config.mock_auth[:slack_install] = slack_omniauth_hash_for_non_admin
     expect do
       get "/auth/slack_install"
       expect(status).to eql(302)
@@ -17,6 +22,6 @@ RSpec.describe "Slack Application Installation", type: :request do
     end.to change { User.count }.by(1)
 
     user = User.first
-    expect(user.slack_user_name).to eql("atmos")
+    expect(user.slack_user_name).to eql("fakeatmos")
   end
 end
