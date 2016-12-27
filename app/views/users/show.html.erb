@@ -1,1 +1,11 @@
 <h1>Hi, <%= @user.slack_user_name %></h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :epicmix_email %>:
+  <%= f.text_field :epicmix_email %><br />
+
+  <%= f.label :epicmix_password %>:
+  <%= f.password_field :last_name %><br />
+
+  <%= f.submit %>
+<% end %>
