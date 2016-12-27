@@ -2,7 +2,7 @@
 
 <%= form_tag("/profile", method: :put) do %>
   <%= label_tag :epicmix_email, "Your EpicMix email addresss" %>
-  <%= text_field_tag :epicmix_email %><br />
+  <%= text_field_tag :epicmix_email, @user.epicmix_email %><br />
 
   <%= label_tag :epicmix_password, "Your EpicMix password" %>
   <%= password_field_tag :epicmix_password %><br />
