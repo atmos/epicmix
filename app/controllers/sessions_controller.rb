@@ -3,11 +3,7 @@ class SessionsController < ApplicationController
   include SessionsHelper
 
   def install_slack
-    user = User.from_omniauth(omniauth_info)
-
-    user.save
-    session[:user_id] = user.id
-    redirect_to profile_path
+    redirect_to "/auth/slack"
   end
 
   def create_slack
