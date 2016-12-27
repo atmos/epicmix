@@ -59,6 +59,12 @@ module EpicMix
       info && info["userName"]
     end
 
+    def vertical_feet
+      stats.current_season.vertical_feet
+    rescue StandardError
+      0
+    end
+
     private
 
     def authenticate!

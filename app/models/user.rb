@@ -52,4 +52,6 @@ class User < ApplicationRecord
     self.epicmix_password = password
     save
   end
+
+  delegate :vertical_feet, to: :epicmix_user
 end

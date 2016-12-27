@@ -6,7 +6,7 @@ class CommandsController < ApplicationController
     if slack_token_valid?
       if epicmix_user && epicmix_user.token
         render json: {
-          text: epicmix_user.stats.current_season.vertical_feet,
+          text: epicmix_user.vertical_feet,
           response_type: "in_channel"
         }, status: 201
       elsif current_user

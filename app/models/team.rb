@@ -19,4 +19,8 @@ class Team < ApplicationRecord
     team.save
     team
   end
+
+  def leaderboard
+    users.sort_by(&:vertical_feet)
+  end
 end
