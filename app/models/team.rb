@@ -21,6 +21,6 @@ class Team < ApplicationRecord
   end
 
   def leaderboard
-    users.sort_by(&:vertical_feet)
+    @leaderboard ||= users.sort_by(&:vertical_feet).reverse
   end
 end
