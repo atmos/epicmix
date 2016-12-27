@@ -1,6 +1,6 @@
 <h1>Hi, <%= @user.slack_user_name %></h1>
 
-<%= form_tag('/posts/1', method: :put) do %>
+<%= form_tag("/profile", method: :put) do %>
   <%= label_tag :epicmix_email, "Your EpicMix email addresss" %>
   <%= text_field_tag :epicmix_email %><br />
 
