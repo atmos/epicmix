@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   include SessionsHelper
 
   def install_slack
-    Rails.logger.info omniauth: omniauth_info
+    Rails.logger.info omniauth: omniauth_info.to_json
     redirect_to "/auth/slack"
   end
 
