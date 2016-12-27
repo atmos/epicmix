@@ -18,6 +18,14 @@ RSpec.describe "A user's profile page Authentication", type: :request do
     follow_redirect!
   end
 
+  it "redirects them to login if no user is found" do
+    get "/profile"
+    expect(status).to eql(302)
+    uri = Addressable::URI.parse(headers["Location"])
+    expect(uri.host).to eql("www.example.com")
+    expect(uri.path).to eql("/auth/slack")
+  end
+
   it "greets them with their slack username" do
     login_as_fakeatmos
 
