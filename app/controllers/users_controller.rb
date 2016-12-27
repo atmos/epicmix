@@ -6,11 +6,8 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if !params[:epicmix_email].blank? && !params[:epicmix_password].blank?
-      @user.epicmix_email    = params[:epicmix_email]
-      @user.epicmix_password = params[:epicmix_password]
-      @user.save
-    end
+    @user.update_epicmix_credentials(params[:epicmix_email],
+                                     params[:epicmix_password])
     redirect_to profile_path
   end
 

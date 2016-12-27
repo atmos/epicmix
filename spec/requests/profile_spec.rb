@@ -1,20 +1,13 @@
 require "rails_helper"
 
 RSpec.describe "A user's profile page Authentication", type: :request do
+  # Logs in to slack and dumps you at the /profile page
   def login_as_fakeatmos
     stub_authenticated_user_for_commands
 
     OmniAuth.config.mock_auth[:slack] = slack_omniauth_hash_for_non_admin
     get "/auth/slack"
-    expect(status).to eql(302)
-    uri = Addressable::URI.parse(headers["Location"])
-    expect(uri.host).to eql("www.example.com")
-    expect(uri.path).to eql("/auth/slack/callback")
     follow_redirect!
-    expect(status).to eql(302)
-    uri = Addressable::URI.parse(headers["Location"])
-    expect(uri.host).to eql("www.example.com")
-    expect(uri.path).to eql("/profile")
     follow_redirect!
   end
 
@@ -57,4 +50,3 @@ RSpec.describe "A user's profile page Authentication", type: :request do
     expect(user.epicmix_user).to_not be_nil
   end
 end
-

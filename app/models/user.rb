@@ -45,4 +45,11 @@ class User < ApplicationRecord
   def epicmix_password
     decrypt_value(enc_epicmix_password)
   end
+
+  def update_epicmix_credentials(email, password)
+    return if email.blank? || password.blank?
+    self.epicmix_email    = email
+    self.epicmix_password = password
+    save
+  end
 end
