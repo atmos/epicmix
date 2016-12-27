@@ -9,8 +9,14 @@ class CommandsController < ApplicationController
           text: epicmix_user.stats.current_season.vertical_feet,
           response_type: "in_channel"
         }, status: 201
+      elsif current_user
+        render json: {
+          text: "<https://epicmix.atmos.org/profile|Configure EpicMix Account>"
+        }, status: 201
       else
-        render json: { text: ":soon:", response_type: "in_channel" }, status: 201
+        render json: {
+          text: "<https://epicmix.atmos.org/auth/slack|Login to EpicMix>"
+        }, status: 201
       end
     else
       render json: {}, status: 403

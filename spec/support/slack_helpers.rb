@@ -5,7 +5,7 @@ module SlackHelpers
       channel_name: "#general",
       command: "/epicmix",
       response_url: "https://hooks.slack.com/commands/T123YG08V/2459573/mfZPdDq",
-      team_id: "T123YG08V",
+      team_id: "T092F92CG",
       team_domain: "atmos-org",
       text: text
     }
@@ -50,4 +50,12 @@ module SlackHelpers
     OmniAuth::AuthHash.new(info)
   end
   # rubocop:enable Metrics/MethodLength
+
+  def stub_authenticated_user_for_commands
+    token = "xoxp-9101111159-5657146422-59735495733-3186a13efg"
+    stub_json_request(:get,
+                      "https://slack.com/api/users.identity?token=#{token}",
+                      fixture_data("slack.com/identity.basic"))
+    User.from_omniauth(slack_omniauth_hash_for_non_admin)
+  end
 end
