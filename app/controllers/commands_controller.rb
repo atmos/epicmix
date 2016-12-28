@@ -4,9 +4,9 @@ class CommandsController < ApplicationController
 
   def create
     if slack_token_valid?
-      if epicmix_user && epicmix_user.token
+      if epicmix_user
+        SlashCommandJob.perform_later(slash_command_params.to_h)
         render json: {
-          text: current_user.team.leaderboard.to_ascii_table,
           response_type: "in_channel"
         }, status: 201
       elsif current_user
@@ -40,5 +40,9 @@ class CommandsController < ApplicationController
 
   def slack_token_valid?
     ActiveSupport::SecurityUtils.secure_compare(params[:token], slack_token)
+  end
+
+  def slash_command_params
+    params.permit!
   end
 end

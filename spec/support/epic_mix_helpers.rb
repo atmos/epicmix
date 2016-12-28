@@ -12,7 +12,7 @@ module EpicMixHelpers
   def epic_mix_authenticated_response
     {
       status: 200,
-      body: epic_mix_fixture_data("authenticate"),
+      body: epic_mix_fixture_data("authenticate.ashx"),
       headers: {
         "Set-Cookie" => "ASP.NET_SessionId=abcdefghijklmnopqrstuvwx"
       }
@@ -31,5 +31,15 @@ module EpicMixHelpers
 
   def epic_mix_api_url(suffix)
     "https://www.epicmix.com/vailresorts/sites/epicmix/api/mobile/#{suffix}"
+  end
+
+  def epic_mix_userstats_for(name)
+    {
+      status: 200,
+      body: epic_mix_fixture_data("userstats.ashx/#{name}.json"),
+      headers: {
+        "Set-Cookie" => "ASP.NET_SessionId=cdefghijklmnopqrstuvwxyz"
+      }
+    }
   end
 end
