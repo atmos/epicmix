@@ -336,6 +336,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   byebug
   capybara
   coal_car (= 0.2.3)

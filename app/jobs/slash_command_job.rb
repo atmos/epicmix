@@ -1,3 +1,4 @@
+# Job for handling long running requests getting back to slack
 class SlashCommandJob < ApplicationJob
   queue_as :default
 
@@ -19,6 +20,7 @@ class SlashCommandJob < ApplicationJob
   end
 
   private
+
   def postback_message(message)
     response = client.post do |request|
       request.url callback_uri.path
@@ -32,7 +34,7 @@ class SlashCommandJob < ApplicationJob
   end
 
   def callback_uri
-    @callback_uri ||= Addressable::URI.parse(response_url)
+    @callback_uri ||= ::Addressable::URI.parse(response_url)
   end
 
   def client
