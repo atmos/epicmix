@@ -18,6 +18,6 @@ class Leaderboard
   end
 
   def to_ascii_table
-    ascii_table.to_s
+    "```" + ascii_table.to_s + "```"
   end
 end
