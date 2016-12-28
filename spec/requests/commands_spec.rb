@@ -63,9 +63,8 @@ RSpec.describe "POST /commands", type: :request do
       )).to_return(epic_mix_userstats_for("atmos"))
 
     stub_request(:post, "https://hooks.slack.com/commands/T123YG08V/2459573/mfZPdDq").
-      with(:body => "{\"response_type\":\"in_channel\",\"text\":\"+-----------+---------------+\\n| Name      | Vertical Feet |\\n+-----------+---------------+\\n| fakeatmos | 24057         |\\n+-----------+---------------+\"}",
-           :headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Content-Type'=>'application/json', 'User-Agent'=>'Faraday v0.9.2'}).
-      to_return(:status => 200, :body => "", :headers => {})
+      with(body: "{\"response_type\":\"in_channel\",\"text\":\"+-----------+---------------+\\n| Name      | Vertical Feet |\\n+-----------+---------------+\\n| fakeatmos | 24057         |\\n+-----------+---------------+\"}",
+      ).to_return(:status => 200, :body => "", :headers => {})
 
     post "/commands", params: default_params(text: "help")
     expect(status).to eql(201)
