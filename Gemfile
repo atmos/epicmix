@@ -27,6 +27,7 @@ gem "sass-rails", "~> 5.0"
 gem "sentry-raven"
 gem "sidekiq"
 gem "tachyons-rails"
+gem "terminal-table"
 gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
