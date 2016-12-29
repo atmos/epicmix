@@ -47,8 +47,6 @@ RSpec.describe "POST /commands", type: :request do
     user.epicmix_password = "mypassword"
     user.save
 
-    user = EpicMix::User.new("atmos@atmos.org", "password")
-
     authenticate_suffix = "authenticate.ashx?loginID=atmos@atmos.org" \
                           "&password=mypassword"
     stub_request(:post, epic_mix_api_url(authenticate_suffix))
@@ -59,12 +57,19 @@ RSpec.describe "POST /commands", type: :request do
                        "token=ABCDEFG1234567890"
     stub_request(:post, epic_mix_api_url(userstats_suffix))
       .with(headers: epic_mix_accept_headers.merge(
-        Cookie: "ASP.NET_SessionId=abcdefghijklmnopqrstuvwx; website#sc_wede=1; ASP.NET_SessionId=abcdefghijklmnopqrstuvwx"
+        Cookie: "ASP.NET_SessionId=abcdefghijklmnopqrstuvwx; " \
+                "website#sc_wede=1; ASP.NET_SessionId=abcdefghijklmnopqrstuvwx"
       )).to_return(epic_mix_userstats_for("atmos"))
 
-    stub_request(:post, "https://hooks.slack.com/commands/T123YG08V/2459573/mfZPdDq").
-      with(body: "{\"response_type\":\"in_channel\",\"text\":\"+-----------+---------------+\\n| Name      | Vertical Feet |\\n+-----------+---------------+\\n| fakeatmos | 24057         |\\n+-----------+---------------+\"}",
-      ).to_return(:status => 200, :body => "", :headers => {})
+    stub_request(:post, "https://hooks.slack.com/commands/T123YG08V/2459573/mfZPdDq")
+      .with(
+        body: "{\"response_type\":\"in_channel\",\"text\":\"" \
+              "```+-----------+---------------+\\n" \
+              "| Name      | Vertical Feet |\\n" \
+              "+-----------+---------------+\\n" \
+              "| fakeatmos | 24057         |\\n" \
+              "+-----------+---------------+```\"}"
+      ).to_return(status: 200, body: "ok")
 
     post "/commands", params: default_params(text: "help")
     expect(status).to eql(201)

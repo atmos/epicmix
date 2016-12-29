@@ -7,7 +7,7 @@ module FixturesHelpers
   def epic_mix_fixture_data(name)
     path = Rails.root.join( \
       "spec", "fixtures", "www.epicmix.com", "vailresorts", "sites", \
-      "epicmix", "api", "mobile", "#{name}" \
+      "epicmix", "api", "mobile", name
     )
     File.read(path)
   end
