@@ -26,9 +26,7 @@ module EpicMix
     def stats!
       response = userstats!
       return unless response.status == 200
-      Rails.cache.fetch(cache_key, expires_in: 1.hour) do
-        UserStats.new(self, JSON.parse(response.body))
-      end
+      UserStats.new(self, JSON.parse(response.body))
     end
 
     def authentication_path
