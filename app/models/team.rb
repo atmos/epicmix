@@ -25,6 +25,6 @@ class Team < ApplicationRecord
   end
 
   def leaderboard
-    @leaderboard = Leaderboard.new(leaderboard_users)
+    @leaderboard ||= Leaderboard.new(leaderboard_users)
   end
 end

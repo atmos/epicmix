@@ -26,7 +26,9 @@ module EpicMix
     def stats!
       response = userstats!
       return unless response.status == 200
-      UserStats.new(self, JSON.parse(response.body))
+      Rails.cache.fetch(cache_key, expires_in: 1.hour) do
+        UserStats.new(self, JSON.parse(response.body))
+      end
     end
 
     def authentication_path
@@ -66,6 +68,10 @@ module EpicMix
     end
 
     private
+
+    def cache_key
+      "user-stats-#{Digest::SHA1.hexdigest(username + password)}"
+    end
 
     def authenticate!
       api.client.post do |request|
