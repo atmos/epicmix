@@ -21,7 +21,7 @@ gem "pg", "~> 0.18"
 gem "puma", "~> 3.0"
 gem "pygments.rb", require: false
 gem "rails", ">= 5.0.0.1", "< 5.1"
-gem "rake", "11.1.2"
+gem "rake", "12.0"
 gem "rbnacl-libsodium", require: "rbnacl/libsodium"
 gem "redis-rails", ">= 5.0.0"
 gem "sass-rails", "~> 5.0"
