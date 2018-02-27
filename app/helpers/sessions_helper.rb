@@ -2,13 +2,13 @@
 module SessionsHelper
   def decoded_params_origin
     JSON.parse(Base64.decode64(params[:origin])).with_indifferent_access
-  rescue
+  rescue StandardError
     nil
   end
 
   def decoded_omniauth_origin
     JSON.parse(Base64.decode64(omniauth_origin)).with_indifferent_access
-  rescue
+  rescue StandardError
     nil
   end
 

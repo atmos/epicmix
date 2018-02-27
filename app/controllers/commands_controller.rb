@@ -26,7 +26,7 @@ class CommandsController < ApplicationController
   private
 
   def epicmix_user
-    current_user && current_user.epicmix_user
+    current_user&.epicmix_user
   end
 
   def current_user

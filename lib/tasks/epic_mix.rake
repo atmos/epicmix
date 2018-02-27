@@ -15,7 +15,7 @@ namespace :epic_mix do
           fp.puts JSON.pretty_generate(JSON.parse(response.body))
         end
       else
-        $stderr.puts "Unable to parse the #{endpoint} endpoint."
+        warn "Unable to parse the #{endpoint} endpoint."
       end
     end
   end
