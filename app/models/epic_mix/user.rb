@@ -1,7 +1,7 @@
 module EpicMix
   # A valid user in epic mix
   class User
-    attr_accessor :api, :info, :password, :stats, :username
+    attr_accessor :api, :info, :password, :username
     def initialize(username, password)
       @api      = Api.new
       @username = username

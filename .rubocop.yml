@@ -12,6 +12,10 @@
 #
 # If you disable a check, document why.
 
+BlockLength:
+  ExcludedMethods: ["describe", "context"]
+  Exclude:
+    - '**/rails_helper.rb'
 
 StringLiterals:
   EnforcedStyle: double_quotes
@@ -19,6 +23,7 @@ StringLiterals:
 
 HashSyntax:
   EnforcedStyle: ruby19
+  UseHashRocketsWithSymbolValues: false
   Severity: error
   Exclude:
     - !ruby/regexp /db\/schema.rb/
@@ -37,12 +42,21 @@ Attr:
 ClassAndModuleChildren:
   Enabled: false # module X<\n>module Y is just as good as module X::Y.
 
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - !ruby/regexp /spec\/*\/*/
+
 Documentation:
   Exclude:
     - !ruby/regexp /spec\/*\/*/
 
-ClassLength:
+ModuleLength:
   Max: 150
+  Exclude:
+    - !ruby/regexp /spec\/*\/*/
+
+ClassLength:
+  Max: 110
   Exclude:
     - !ruby/regexp /spec\/*\/*/
 
@@ -51,7 +65,7 @@ PercentLiteralDelimiters:
     '%w': '{}'
 
 LineLength:
-  Max: 158
+  Max: 80
   Severity: warning
 
 MultilineTernaryOperator:
@@ -75,7 +89,7 @@ MethodLength:
   Severity: error
 
 FrozenStringLiteralComment:
-  Enabled: false # this needs comments everywhere
+  Enabled: false # Adding comment to all files...
 
 Alias:
   Enabled: false # We have no guidance on alias vs alias_method
@@ -86,11 +100,21 @@ RedundantSelf:
 IfUnlessModifier:
   Enabled: false
 
-Style/Proc:
+Metrics/AbcSize:
+  Max: 16
+
+Style/SafeNavigation:
   Enabled: false
 
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging
+
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.5
   # Include gemspec and Rakefile
   Include:
     - '**/*.gemspec'
@@ -102,11 +126,7 @@ AllCops:
     - '**/Podfile'
     - '**/Vagrantfile'
   Exclude:
-    - 'db/**/*'
-    - 'bin/*'
-    - 'script/**/*'
-    - 'config/**/*'
-    - 'vendor/**/*'
+    - !ruby/regexp /(db|bin|script|config|vendor)\/.*/
   # By default, the rails cops are not run. Override in project or home
   # directory .rubocop.yml files, or by giving the -R/--rails option.
 Rails:

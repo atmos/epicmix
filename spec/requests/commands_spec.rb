@@ -41,6 +41,7 @@ RSpec.describe "POST /commands", type: :request do
     expect(response_body["response_type"]).to eql(nil)
   end
 
+  # rubocop:disable Metrics/BlockLength
   it "creates a SlashCommand job if the user is valid" do
     user = stub_authenticated_user_for_commands
     user.epicmix_email    = "atmos@atmos.org"
@@ -61,7 +62,8 @@ RSpec.describe "POST /commands", type: :request do
                 "website#sc_wede=1; ASP.NET_SessionId=abcdefghijklmnopqrstuvwx"
       )).to_return(epic_mix_userstats_for("atmos"))
 
-    stub_request(:post, "https://hooks.slack.com/commands/T123YG08V/2459573/mfZPdDq")
+    stub_request(:post,
+                 "https://hooks.slack.com/commands/T123YG08V/2459573/mfZPdDq")
       .with(
         body: "{\"response_type\":\"in_channel\",\"text\":\"" \
               "```+-----------+---------------+\\n" \
@@ -76,4 +78,5 @@ RSpec.describe "POST /commands", type: :request do
     response_body = JSON.parse(body)
     expect(response_body["response_type"]).to eql("in_channel")
   end
+  # rubocop:enable Metrics/BlockLength
 end

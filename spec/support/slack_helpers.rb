@@ -1,5 +1,6 @@
-# rubocop:disable Metrics/ModuleLength
 module SlackHelpers
+  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Metrics/MethodLength
   def command_params_for(text)
     {
       channel_id: "C99NNAY74",
@@ -12,7 +13,6 @@ module SlackHelpers
     }
   end
 
-  # rubocop:disable Metrics/MethodLength
   def slack_omniauth_hash_for_install
     info = {
       "provider": "slack_install",
@@ -110,6 +110,7 @@ module SlackHelpers
     }
     OmniAuth::AuthHash.new(info)
   end
+  # rubocop:enable Metrics/LineLength
   # rubocop:enable Metrics/MethodLength
 
   def stub_authenticated_user_for_commands
@@ -120,4 +121,3 @@ module SlackHelpers
     User.from_omniauth(slack_omniauth_hash_for_non_admin)
   end
 end
-# rubocop:enable Metrics/ModuleLength

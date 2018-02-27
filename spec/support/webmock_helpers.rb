@@ -5,6 +5,8 @@ module WebmockHelpers
 
   def stub_json_request(method, url, response_body, status = 200)
     stub_request(method, url)
-      .to_return(status: status, body: response_body, headers: default_json_headers)
+      .to_return(
+        status: status, body: response_body, headers: default_json_headers
+      )
   end
 end

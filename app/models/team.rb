@@ -1,6 +1,6 @@
 # A team with the slack app install
 class Team < ApplicationRecord
-  has_many :users
+  has_many :users, dependent: :destroy
 
   def self.from_omniauth_install(omniauth_install_data)
     team = Team.find_or_initialize_by(
